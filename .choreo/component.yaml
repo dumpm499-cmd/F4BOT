@@ -1,0 +1,15 @@
+apiVersion: core/v1
+kind: Component
+metadata:
+  name: One
+spec:
+  type: service
+  artifacts:
+    - name: image
+      type: docker
+      buildContext: .
+      dockerfile: Dockerfile
+  # This part tells Choreo how much power to give your bot
+  resources:
+    cpu: 500m
+    memory: 512Mi
