@@ -1,27 +1,27 @@
-# Don't Remove Credit @VJ_Bots
-# Subscribe YouTube Channel For Amazing Bot @Tech_VJ
-# Ask Doubt on telegram @KingVJ01
-
+# Keep your preferred version
 FROM python:3.10.8-slim-buster
 
+# FIX: Point apt to the archive servers because Buster is EOL
+RUN sed -i s/deb.debian.org/archive.debian.org/g /etc/apt/sources.list && \
+    sed -i s/security.debian.org/archive.debian.org/g /etc/apt/sources.list && \
+    sed -i '/stretch-updates/d' /etc/apt/sources.list
+
+# Now apt update will work
 RUN apt update && apt upgrade -y
 RUN apt install git -y
 
-# --- ADD ONLY THIS SECTION ---
-# This stops the Choreo "CKV_DOCKER_3" error
+# SECURITY FIX: Create the non-root user Choreo requires
 RUN useradd -m -u 10001 vjuser
-# -----------------------------
 
 COPY requirements.txt /requirements.txt
 RUN pip3 install -U pip && pip3 install -U -r requirements.txt
 
-RUN mkdir /VJ-FILTER-BOT
+# SETUP: Create directory and set permissions
+RUN mkdir /VJ-FILTER-BOT && chown vjuser:vjuser /VJ-FILTER-BOT
 WORKDIR /VJ-FILTER-BOT
-COPY . /VJ-FILTER-BOT
+COPY --chown=vjuser:vjuser . /VJ-FILTER-BOT
 
-# --- AND THIS LINE AT THE END ---
+# Switch to the non-root user
 USER 10001
-# -----------------------------
 
 CMD ["python3", "bot.py"]
-
