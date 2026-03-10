@@ -10,6 +10,11 @@ spec:
       buildContext: .
       dockerfile: Dockerfile
   # This part tells Choreo how much power to give your bot
+  endpoints:
+    - name: bot-link
+      port: 8000
+      type: http
+      networkVisibility: public
   resources:
     cpu: 500m
     memory: 512Mi
