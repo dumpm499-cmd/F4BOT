@@ -6,12 +6,22 @@ FROM python:3.10.8-slim-buster
 
 RUN apt update && apt upgrade -y
 RUN apt install git -y
-COPY requirements.txt /requirements.txt
 
-RUN cd /
+# --- ADD ONLY THIS SECTION ---
+# This stops the Choreo "CKV_DOCKER_3" error
+RUN useradd -m -u 10001 vjuser
+# -----------------------------
+
+COPY requirements.txt /requirements.txt
 RUN pip3 install -U pip && pip3 install -U -r requirements.txt
+
 RUN mkdir /VJ-FILTER-BOT
 WORKDIR /VJ-FILTER-BOT
 COPY . /VJ-FILTER-BOT
-CMD ["python", "bot.py"]
+
+# --- AND THIS LINE AT THE END ---
+USER 10001
+# -----------------------------
+
+CMD ["python3", "bot.py"]
 
