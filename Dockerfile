@@ -22,6 +22,8 @@ WORKDIR /VJ-FILTER-BOT
 COPY --chown=vjuser:vjuser . /VJ-FILTER-BOT
 
 # Switch to the non-root user
+EXPOSE 8000
 USER 10001
 
 CMD ["python3", "bot.py"]
+
