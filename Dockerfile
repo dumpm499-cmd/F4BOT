@@ -8,7 +8,7 @@ RUN sed -i s/deb.debian.org/archive.debian.org/g /etc/apt/sources.list && \
 
 # Now apt update will work
 RUN apt update && apt upgrade -y
-RUN apt install git -y
+RUN apt install git ffmpeg wget -y
 
 # SECURITY FIX: Create the non-root user Choreo requires
 RUN useradd -m -u 10001 vjuser
