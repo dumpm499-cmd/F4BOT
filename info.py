@@ -5,6 +5,8 @@
 
 import re
 from os import environ
+from dotenv import load_dotenv
+load_dotenv()
 from Script import script 
 
 id_pattern = re.compile(r'^.\d+$')
