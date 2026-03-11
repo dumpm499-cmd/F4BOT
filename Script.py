@@ -244,9 +244,11 @@ Nᴀᴍᴇ - {}"""
 
 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 <b>: {}</b>"""
 
-    CAPTION = """<b>📂 ғɪʟᴇɴᴀᴍᴇ : {file_name}
+    CAPTION = """<b>📂 {file_name}
 
-<b>⚙️ sɪᴢᴇ : {file_size}</b>""" 
+<b>⚙️ sɪᴢᴇ : {file_size}
+
+Join @nezha_arena</b>""" 
 
     IMDB_TEMPLATE_TXT = """
 <b>Query: {qurey}
