@@ -24,6 +24,7 @@ marshmallow>=3.14.1
 umongo>=3.0.1 
 PyLeaves>=1.0.2
 youtube-search-python>=1.4.6
+youtube-search
 opencv-python-headless>=4.7.0.68 
 googletrans==4.0.0rc1
 python-dotenv>=0.21.1 
@@ -35,4 +36,5 @@ psutil>=5.9.4
 dnspython>=2.3.0
 ffmpeg-python>=0.2.0
 openai>=0.25.0
-httpx>=0.24.1
+Cinemagoer
+wget
