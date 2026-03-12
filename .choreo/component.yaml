@@ -1,7 +1,6 @@
 schemaVersion: "1.0"
-buildPreset: docker
-dockerfilePath: Dockerfile
-buildContext: .
+buildPreset: python
+pythonVersion: "3.10"
 endpoints:
   - name: bot-link
     service:
