@@ -1,4 +1,6 @@
 schemaVersion: "1.0"
+buildPreset: python
+pythonVersion: "3.10"
 endpoints:
   - name: bot-link
     service:
