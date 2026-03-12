@@ -1,15 +1,14 @@
 apiVersion: core/v1
 kind: Component
 metadata:
-  name: One
+  name: f4bot
 spec:
   type: service
   artifacts:
     - name: image
       type: docker
       buildContext: .
-      dockerfile: Dockerfile
-  # This part tells Choreo how much power to give your bot
+      dockerfile: /Dockerfile
   endpoints:
     - name: bot-link
       port: 8000
