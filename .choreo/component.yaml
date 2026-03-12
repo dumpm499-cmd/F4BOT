@@ -8,7 +8,7 @@ spec:
     - name: image
       type: docker
       buildContext: .
-      dockerfile: /Dockerfile
+      dockerfile: Dockerfile
   endpoints:
     - name: bot-link
       port: 8000
