@@ -1,16 +1,10 @@
 # Keep your preferred version
-FROM python:3.10.8-slim-buster
+FROM python:3.10-slim
 
-# FIX: Point apt to the archive servers because Buster is EOL
-RUN sed -i s/deb.debian.org/archive.debian.org/g /etc/apt/sources.list && \
-    sed -i s/security.debian.org/archive.debian.org/g /etc/apt/sources.list && \
-    sed -i '/stretch-updates/d' /etc/apt/sources.list
+# Install dependencies
+RUN apt-get update && apt-get install -y git ffmpeg wget && rm -rf /var/lib/apt/lists/*
 
-# Now apt update will work
-RUN apt update && apt upgrade -y
-RUN apt install git ffmpeg wget -y
-
-# SECURITY FIX: Create the non-root user Choreo requires
+# Create non-root user (Choreo requirement)
 RUN useradd -m -u 10001 vjuser
 
 COPY requirements.txt /requirements.txt
