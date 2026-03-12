@@ -1,19 +1,9 @@
-apiVersion: core/v1
-kind: Component
-metadata:
-  name: f4bot
-spec:
-  type: service
-  artifacts:
-    - name: image
-      type: docker
-      buildContext: .
-      dockerfile: Dockerfile
-  endpoints:
-    - name: bot-link
+schemaVersion: "1.0"
+endpoints:
+  - name: bot-link
+    service:
+      basePath: /
       port: 8000
-      type: http
-      networkVisibility: public
-  resources:
-    cpu: 500m
-    memory: 512Mi
+    type: REST
+    networkVisibilities:
+      - Public
