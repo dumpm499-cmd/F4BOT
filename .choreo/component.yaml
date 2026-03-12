@@ -1,11 +1,10 @@
-schemaVersion: "1.0"
-buildPreset: python
-pythonVersion: "3.10"
+schemaVersion: "1.2"
 endpoints:
-  - name: bot-link
-    service:
-      basePath: /
-      port: 8000
-    type: REST
-    networkVisibilities:
-      - Public
+    - name: bot-link
+      displayName: bot-link
+      service:
+        basePath: /
+        port: 8000
+      type: REST
+      networkVisibilities:
+        - Public
