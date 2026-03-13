@@ -2,6 +2,10 @@
 # Subscribe YouTube Channel For Amazing Bot @Tech_VJ
 # Ask Doubt on telegram @KingVJ01
 
+# Don't Remove Credit @VJ_Bots
+# Subscribe YouTube Channel For Amazing Bot @Tech_VJ
+# Ask Doubt on telegram @KingVJ01
+
 from pyrogram import Client, types
 from info import *
 from utils import temp
@@ -13,13 +17,14 @@ class TechVJXBot(Client):
 
     def __init__(self):
         super().__init__(
-            name=SESSION,
+            SESSION_STRING if SESSION_STRING else SESSION,
             api_id=API_ID,
             api_hash=API_HASH,
             bot_token=BOT_TOKEN,
             workers=150,
             plugins={"root": "plugins"},
             sleep_threshold=5,
+            in_memory=True
         )
 
     async def set_self(self):
@@ -68,4 +73,3 @@ TechVJBot = TechVJXBot()
 
 multi_clients = {}
 work_loads = {}
-
