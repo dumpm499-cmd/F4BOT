@@ -12,7 +12,7 @@ from Script import script
 id_pattern = re.compile(r'^.\d+$')
 
 # Bot information
-SESSION = environ.get('SESSION', 'TechVJBot')
+SESSION_STRING = environ.get('SESSION_STRING', '')
 API_ID = int(environ.get('API_ID', '0'))
 API_HASH = environ.get('API_HASH', '')
 BOT_TOKEN = environ.get('BOT_TOKEN', "")
